@@ -44,7 +44,11 @@ header {
 
 h1, h2 {
     font-family: var(--font-secondary);
-    color: var(--space-cadet);
+    color: var(--alice-blue);
+    /*font-family: "Edu AU VIC WA NT Pre", cursive;*/
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
 }
 
 .tagline {
@@ -112,3 +116,4 @@ footer {
     padding: 20px;
     font-family: var(--font-secondary);
 }
+

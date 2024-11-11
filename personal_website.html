@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ariel Xu - Data Scientist CV</title>
   <link rel="stylesheet" href="styles_2.css">
-  <link href="https://fonts.googleapis.com/css2?family=Monda&family=Martel+Sans&family=Biryani&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&display=swap" rel="stylesheet">
+<!--  <link href="https://fonts.googleapis.com/css2?family=Monda&family=Martel+Sans&family=Biryani&display=swap" rel="stylesheet">-->
 </head>
 <body>
 
@@ -22,11 +25,9 @@
   <section id="home" class="section">
     <h1>Ariel Xu</h1>
     <p class="tagline">Data Scientist | Data Analyst | Turning Data into Insights</p>
-    <a href="https://www.linkedin.com/in/ariel-xu" target="_blank" class="linkedin-icon">LinkedIn</a>
-    <div class="timeline">
-      <!-- Add timeline dots with links -->
-      <span class="timeline-dot" onclick="scrollToSection('#education')">Education</span>
-      <span class="timeline-dot" onclick="scrollToSection('#experience')">Experience</span>
+    <a href="https://www.linkedin.com/in/qin-xu--ariel" target="_blank" class="linkedin-icon">LinkedIn</a>
+    <div class="contact-info">
+      <p>(437) 361-9206 | <a href="mailto:Ariel.xq2025@outlook.com">Ariel.xq2025@outlook.com</a> | Toronto, ON</p>
     </div>
   </section>
 </header>
@@ -34,38 +35,64 @@
 <!-- Education Section -->
 <section id="education" class="section">
   <h2>Education</h2>
-  <p>McGill University - Master’s in Information Studies</p>
-  <p>University of Toronto - B.Sc. in Statistics, Cognitive Science, and Computer Science</p>
+  <p><strong>McGill University, Montreal, QC</strong> - Master of Information Studies, ML, and Data Science (August 2023 - June 2025)</p>
+  <p><strong>University of Toronto, Toronto, ON</strong> - Bachelor of Science in Statistics, Cognitive Science, and Computer Science (August 2020 - June 2023)</p>
 </section>
 
 <!-- Technical Skills Section -->
 <section id="skills" class="section">
   <h2>Technical Skills</h2>
-  <div class="skills">
-    <div class="skill">Python</div>
-    <div class="skill">SQL</div>
-    <div class="skill">Tableau</div>
-    <div class="skill">Machine Learning</div>
-    <!-- Add other skills -->
-  </div>
+  <ul>
+    <li><strong>Programming:</strong> Python, Machine Learning, HTML, CSS, R</li>
+    <li><strong>Data Visualization:</strong> Tableau, Power BI</li>
+    <li><strong>Database:</strong> SQL, MySQL</li>
+    <li><strong>Version Control:</strong> Git, GitHub</li>
+    <li><strong>Other Software:</strong> Figma, Procreate, Microsoft Office Suite</li>
+  </ul>
 </section>
 
 <!-- Experience Section -->
 <section id="experience" class="section">
-  <h2>Experience</h2>
-  <p>Data Scientist - Improved model accuracy and user profiling.</p>
-  <!-- Add more experience details as per requirement -->
+  <h2 >Experience</h2>
+  <div class="job">
+    <h3>Machine Learning and Data Scientist - Intern</h3>
+    <p><strong>ICBC Software Development Centre, Beijing, China (May 2024 - August 2024)</strong></p>
+    <ul>
+      <li>Enhanced Credit Card Fraud Detection: Optimized LightGBM model, improving recall by 15% and F1 score by 10%, achieving 98% accuracy with 0.95 AUC.</li>
+      <li>Developed and optimized VQ-VAE model for user feature recognition, leading to production deployment approval.</li>
+      <li>Designed MMoE model for ad recommendations, reducing resource consumption by 20%.</li>
+      <li>Presented final products to executives, contributing to two new ML initiatives company-wide.</li>
+    </ul>
+  </div>
 </section>
 
 <!-- Projects Section -->
 <section id="projects" class="section">
   <h2>Projects</h2>
   <div class="project">
-    <h3>Credit Card Fraud Detection System</h3>
-    <p>Optimized LightGBM model to improve recall and F1 scores.</p>
-    <button onclick="showProjectDetails('fraud-detection')">Details</button>
+    <h3>Pet & Park Database Design Project</h3>
+    <p><strong>SQL, Database, HTML (Sept 2024 - Dec 2024)</strong></p>
+    <ul>
+      <li>Designed a comprehensive database for Vancouver’s pet and park data, involving 15+ tables.</li>
+      <li>Implemented SQL queries and ERD with MySQL, meeting user needs across multiple tables.</li>
+    </ul>
   </div>
-  <!-- Add more projects -->
+  <div class="project">
+    <h3>College Student Calendar Software Design</h3>
+    <p><strong>R, UXD, Tableau (Jan 2022 - May 2022)</strong></p>
+    <ul>
+      <li>Led a 5-person team in developing a calendar app, improving UI satisfaction by 20%.</li>
+      <li>Conducted user testing and data visualization with Tableau.</li>
+    </ul>
+  </div>
+  <div class="project">
+    <h3>Image Classification Project</h3>
+    <p><strong>Python, ML (March 2023 - April 2023)</strong></p>
+    <ul>
+      <li>Optimized ResNet model with Vision Transformer, achieving 95% classification accuracy.</li>
+      <li>Used PyTorch and other libraries to enhance training flexibility for future projects.</li>
+    </ul>
+  </div>
 </section>
 
 <!-- Contact Section -->
@@ -81,7 +108,7 @@
 
 <!-- Footer -->
 <footer>
-  <p>Connect with me on <a href="https://www.linkedin.com/in/ariel-xu">LinkedIn</a> or email me for inquiries.</p>
+  <p>Connect with me on <a href="https://www.linkedin.com/in/qin-xu--ariel">LinkedIn</a> or email me for inquiries.</p>
 </footer>
 
 </body>
