@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ariel Xu - Data-Driven Portfolio</title>
+  <link rel="stylesheet" href="styles_2.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1> Qin Xu</h1>
+      <p>Data Scientist | Data Analyst | Innovator</p>
+      <a href="#projects" class="cta">View Projects</a>
+      <img src = 'https://eduguide.co.in/wp-content/uploads/2020/12/data-science...jpg' alt = 'BG'>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="section">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>I’m a data scientist and web developer with a passion for solving complex problems and creating dynamic, data-driven applications. I combine technical expertise in machine learning, web development, and data visualization to deliver impactful solutions.</p>
+  </div>
+</section>
+
+<section id="skills" class="section bg-light">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">
+        <h3>Python</h3>
+        <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+      </div>
+      <div class="skill">
+        <h3>JavaScript</h3>
+        <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+      </div>
+      <div class="skill">
+        <h3>Machine Learning</h3>
+        <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+      </div>
+      <div class="skill">
+        <h3>Web Development</h3>
+        <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="tabs">
+      <button class="tab-link" onclick="openTab(event, 'ml')">Machine Learning</button>
+      <button class="tab-link" onclick="openTab(event, 'web-dev')">Web Development</button>
+    </div>
+
+    <div id="ml" class="tab-content">
+      <div class="project-card">
+        <h3>Fraud Detection System</h3>
+        <p>LightGBM and SHAP-based fraud detection system for credit card transactions.</p>
+        <div id="fraud-chart"></div>
+      </div>
+    </div>
+
+    <div id="web-dev" class="tab-content" style="display:none;">
+      <div class="project-card">
+        <h3>Ad Recommendation System</h3>
+        <p>Multi-task learning model for optimizing ad placements using user behavior data.</p>
+        <div id="ad-recommendation-chart"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="blog" class="section bg-light">
+  <div class="container">
+    <h2>Blog</h2>
+    <div id="blog-posts"></div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2024 Ariel Xu. <a href="resume.pdf" download>Download Resume</a></p>
+  </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
