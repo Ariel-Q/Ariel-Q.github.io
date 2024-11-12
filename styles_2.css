@@ -18,16 +18,10 @@ body {
 }
 
 header {
-    background-color: var(--raisin-black);
-    color: white;
+    background-color: var(--lapis-lazuli);
+    color: var(--alice-blue);
     text-align: center;
     padding: 20px;
-}
-
-.navbar {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
 }
 
 .navbar a {
@@ -44,64 +38,143 @@ header {
 
 h1, h2 {
     font-family: var(--font-secondary);
-    color: var(--alice-blue);
-    /*font-family: "Edu AU VIC WA NT Pre", cursive;*/
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: normal;
+    color: var(--space-cadet);
 }
 
-.tagline {
+.tagline, .contact-info {
     font-family: var(--font-accent);
-    font-size: 1.2em;
     color: var(--columbia-blue);
 }
 
+/* Timeline Styles */
 .timeline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     margin-top: 20px;
+    padding: 10px; /* Add padding to ensure visibility */
+    gap: 50px;
+    background-color: #f2f2f2; /* Temporary background color for visibility */
+    z-index: 2; /* Bring the timeline forward */
+    border-radius: 8px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--columbia-blue);
+    z-index: -1; /* Keep this below the timeline dots */
 }
 
 .timeline-dot {
+    position: relative;
+    width: 15px;
+    height: 15px;
     background-color: var(--lapis-lazuli);
-    color: white;
-    padding: 10px;
     border-radius: 50%;
     cursor: pointer;
-    display: inline-block;
+    transition: background-color 0.3s ease;
+    z-index: 3; /* Ensure dots are above the line */
 }
 
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.skill {
-    background-color: var(--columbia-blue);
-    color: white;
+/* Hover Effect: Show Time and Title */
+.timeline-dot::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
     padding: 5px 10px;
-    border-radius: 5px;
-    font-family: var(--font-accent);
+    background-color: var(--lapis-lazuli);
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
-.project {
+.timeline-dot:hover::after {
+    opacity: 1;
+}
+/*!* Hover Effect: Show Time and Title *!*/
+/*.timeline-dot::after {*/
+/*    opacity: 1;*/
+/*    content: attr(data-title);*/
+/*    position: absolute;*/
+/*    bottom: 25px;*/
+/*    left: 50%;*/
+/*    transform: translateX(-50%);*/
+/*    white-space: nowrap;*/
+/*    padding: 5px 10px;*/
+/*    background-color: var(--lapis-lazuli);*/
+/*    color: white;*/
+/*    border-radius: 4px;*/
+/*    font-size: 12px;*/
+/*    opacity: 0;*/
+/*    pointer-events: none;*/
+/*    transition: opacity 0.3s ease;*/
+/*}*/
+
+/*.timeline-dot:hover {*/
+/*    background-color: var(--columbia-blue);*/
+/*}*/
+
+.timeline-dot:hover::after {
+    opacity: 1;
+}
+
+.skills-chart .skill {
+    margin: 10px 0;
+}
+.project-details {
+    display: none; /* Hide project details initially */
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--alice-blue);
+    color: var(--raisin-black);
+    border: 1px solid var(--lapis-lazuli);
+    border-radius: 5px;
+}
+
+.project-details ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.bar {
+    background-color: var(--columbia-blue);
+    height: 8px;
+    border-radius: 5px;
+}
+
+/* Experience, Projects, and Contact Sections */
+.job, .project {
     background-color: var(--space-cadet);
     color: var(--alice-blue);
-    padding: 20px;
+    padding: 15px;
+    margin-bottom: 20px;
     border-radius: 8px;
-    margin-bottom: 15px;
 }
 
 .contact-form input, .contact-form textarea {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid var(--lapis-lazuli);
     border-radius: 5px;
+    border: 1px solid var(--lapis-lazuli);
 }
 
 .contact-form button {
-    background-color: var(--lapis-lazuli);
+    background-color: var(--space-cadet);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -109,6 +182,7 @@ h1, h2 {
     cursor: pointer;
 }
 
+/* Footer */
 footer {
     background-color: var(--raisin-black);
     color: white;
@@ -117,3 +191,16 @@ footer {
     font-family: var(--font-secondary);
 }
 
+footer button {
+    background-color: var(--columbia-blue);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+footer button:hover {
+    background-color: var(--lapis-lazuli);
+}
