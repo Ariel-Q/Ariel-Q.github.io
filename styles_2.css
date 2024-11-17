@@ -24,17 +24,34 @@ header {
     padding: 20px;
 }
 
-.navbar {
+/* Reset Body Margin and Padding */
+/*body, html {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/* Navbar Container to Center the Navbar */
+.navbar-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #f5f5f5; /* Lighter background color */
+    top: 10px; /* Space from the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Shift to center */
+    z-index: 1000;
+    width: 100%; /* Allow the navbar to be centered within viewport */
     display: flex;
     justify-content: center;
-    padding: 10px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
-    z-index: 1000; /* Keeps navbar on top of other elements */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #f5f5f5; /* Light background */
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px; /* Rounded corners for the entire navbar */
+    max-width: 90%; /* Make navbar narrower with space on sides */
 }
 
 /* Navbar Links */
@@ -44,9 +61,9 @@ header {
     padding: 10px 20px;
     font-family: var(--font-secondary);
     font-size: 16px;
-    border-radius: 5px; /* Rounded edges */
-    margin: 0 5px; /* Space between items */
     background-color: #e8e8e8; /* Slightly darker than navbar background */
+    border-radius: 12px; /* Rounded corners for each button */
+    margin: 0 5px; /* Space between each button */
     border: 1px solid #d0d0d0; /* Light border for each item */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -56,7 +73,6 @@ header {
     background-color: var(--columbia-blue); /* Color on hover */
     color: white;
 }
-
 .section {
     padding: 50px 20px;
     max-width: 800px;
@@ -68,6 +84,29 @@ h1, h2 {
     color: var(--space-cadet);
 }
 
+/* Typewriter Effect */
+.tagline span {
+    display: inline-block;
+    font-family: var(--font-accent); /* Use your preferred font */
+    font-size: 1.2em;
+    color: var(--columbia-blue); /* Customize color as desired */
+    white-space: nowrap; /* Prevent line breaks */
+    overflow: hidden; /* Hide overflowing text */
+    border-right: 3px solid var(--columbia-blue); /* Cursor effect */
+    animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;
+}
+
+/* Typing Animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Blinking Cursor */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--columbia-blue); }
+}
 .tagline, .contact-info {
     font-family: var(--font-accent);
     color: var(--columbia-blue);
@@ -82,9 +121,9 @@ h1, h2 {
     margin-top: 20px;
     padding: 10px; /* Add padding to ensure visibility */
     gap: 50px;
-    background-color: #f2f2f2; /* Temporary background color for visibility */
+    /*background-color: #f2f2f2; !* Temporary background color for visibility *!*/
     z-index: 2; /* Bring the timeline forward */
-    border-radius: 8px;
+    /*border-radius: 8px;*/
 }
 
 .timeline::before {
@@ -94,7 +133,7 @@ h1, h2 {
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: var(--columbia-blue);
+    background-color: white;
     z-index: -1; /* Keep this below the timeline dots */
 }
 
@@ -102,7 +141,7 @@ h1, h2 {
     position: relative;
     width: 15px;
     height: 15px;
-    background-color: var(--lapis-lazuli);
+    background-color: var(--columbia-blue);
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -118,7 +157,7 @@ h1, h2 {
     transform: translateX(-50%);
     white-space: nowrap;
     padding: 5px 10px;
-    background-color: var(--lapis-lazuli);
+    background-color: var(--raisin-black);
     color: white;
     border-radius: 4px;
     font-size: 12px;
@@ -153,7 +192,42 @@ h1, h2 {
 /*    background-color: var(--columbia-blue);*/
 /*}*/
 
-.timeline-dot:hover::after {
+/* Style for university names */
+.university-name {
+    text-decoration: underline dotted; /* Dotted underline for university name */
+    cursor: pointer;
+    color: var(--space-cadet); /* Default color */
+}
+
+/* Info icon style */
+.info-icon {
+    font-size: 14px;
+    margin-left: 5px;
+    color: var(--columbia-blue);
+}
+
+/* Change color on hover to indicate interactivity */
+.university-name:hover {
+    color: var(--columbia-blue); /* Change text color on hover */
+}
+
+/* Details are hidden by default */
+.details {
+    display: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--space-cadet);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Show details on hover */
+.institution:hover .details {
+    display: block;
     opacity: 1;
 }
 
