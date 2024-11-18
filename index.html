@@ -38,37 +38,42 @@
 
 <section id="education" class="section">
   <h2>Education</h2>
-
-  <!-- Institution 1 -->
-  <div class="institution">
-    <p>
-      <span class="university-name">McGill University</span> <span class="info-icon">ℹ️</span> - Master of Information Studies, ML, and Data Science (August 2023 - June 2025)
-    </p>
-    <div class="details">
-      <p>Relevant Coursework:</p>
-      <ul>
-        <li>Machine Learning</li>
-        <li>Data Science</li>
-        <li>Natural Language Processing</li>
-      </ul>
+  <div class="education-container">
+    <!-- Institution 1 -->
+    <div class="institution">
+      <p>
+        <span class="university-name">McGill University</span> <span class="info-icon">ℹ️</span>
+      </p>
+      <p>Master of Information Studies, ML, and Data Science <br> (August 2023 - June 2025)</p>
+      <div class="details">
+        <p>Relevant Coursework:</p>
+        <ul>
+          <li>Machine Learning</li>
+          <li>Data Science</li>
+          <li>Natural Language Processing</li>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <!-- Institution 2 -->
-  <div class="institution">
-    <p>
-      <span class="university-name">University of Toronto</span> <span class="info-icon">ℹ️</span> - Bachelor of Science in Statistics, Cognitive Science, and Computer Science (August 2020 - June 2023)
-    </p>
-    <div class="details">
-      <p>Relevant Coursework:</p>
-      <ul>
-        <li>Statistics</li>
-        <li>Cognitive Science</li>
-        <li>Data Structures and Algorithms</li>
-      </ul>
+    <!-- Institution 2 -->
+    <div class="institution">
+      <p>
+        <span class="university-name">University of Toronto</span> <span class="info-icon">ℹ️</span>
+      </p>
+      <p>Bachelor of Science in Statistics, Cognitive Science, and Computer Science <br> (August 2020 - June 2023)</p>
+      <div class="details">
+        <p>Relevant Coursework:</p>
+        <ul>
+          <li>Statistics</li>
+          <li>Cognitive Science</li>
+          <li>Data Structures and Algorithms</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
+
+
 
 <!-- Technical Skills Section with Bar Charts -->
 <section id="skills" class="section">
@@ -170,12 +175,14 @@
 </footer>
 
 </body>
+
 <script>
   function scrollToSection(sectionId) {
-    document.querySelector(sectionId).scrollIntoView({ behavior: 'smooth' });
-  }
-  function downloadResume() {
-    window.open('resume.pdf', '_blank');
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
 </script>
+
 </html>

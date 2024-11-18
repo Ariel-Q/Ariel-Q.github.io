@@ -24,14 +24,6 @@ header {
     padding: 20px;
 }
 
-/* Reset Body Margin and Padding */
-/*body, html {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    box-sizing: border-box;*/
-/*}*/
-
-/* Navbar Container to Center the Navbar */
 .navbar-container {
     position: fixed;
     top: 10px; /* Space from the top */
@@ -169,67 +161,69 @@ h1, h2 {
 .timeline-dot:hover::after {
     opacity: 1;
 }
-/*!* Hover Effect: Show Time and Title *!*/
-/*.timeline-dot::after {*/
-/*    opacity: 1;*/
-/*    content: attr(data-title);*/
-/*    position: absolute;*/
-/*    bottom: 25px;*/
-/*    left: 50%;*/
-/*    transform: translateX(-50%);*/
-/*    white-space: nowrap;*/
-/*    padding: 5px 10px;*/
-/*    background-color: var(--lapis-lazuli);*/
-/*    color: white;*/
-/*    border-radius: 4px;*/
-/*    font-size: 12px;*/
-/*    opacity: 0;*/
-/*    pointer-events: none;*/
-/*    transition: opacity 0.3s ease;*/
-/*}*/
 
-/*.timeline-dot:hover {*/
-/*    background-color: var(--columbia-blue);*/
-/*}*/
-
-/* Style for university names */
-.university-name {
-    text-decoration: underline dotted; /* Dotted underline for university name */
-    cursor: pointer;
-    color: var(--space-cadet); /* Default color */
+/* Education Section */
+.education-container {
+    display: flex;
+    justify-content: space-between; /* Space between items */
+    gap: 20px; /* Add space between the columns */
+    flex-wrap: wrap; /* Wrap items to the next line if needed */
 }
 
-/* Info icon style */
+.institution {
+    flex: 1; /* Ensure each institution takes up equal space */
+    min-width: 300px; /* Prevent columns from becoming too small */
+    background-color: #f9f9f9; /* Background for the institution box */
+    padding: 10px 20px 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the box */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, height 0.3s ease; /* Smooth hover effect */
+    overflow: hidden; /* Prevent content overflow during expansion */
+    cursor: pointer;
+    height: 120px; /* Default height */
+}
+
+/* Hover Effect to Expand the Box */
+.institution:hover {
+    background-color: #ffffff; /* Slightly lighter background on hover */
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    height: auto; /* Expand height dynamically */
+    z-index: 1; /* Bring the hovered institution to the front */
+}
+
+/* Details Styling */
+.details {
+    opacity: 0; /* Start hidden */
+    max-height: 0; /* Initially hidden */
+    transition: opacity 0.3s ease, max-height 0.3s ease; /* Smooth reveal */
+}
+
+/* Show details on hover */
+.institution:hover .details {
+    opacity: 1; /* Fade in */
+    max-height: 300px; /* Allow content to be fully visible */
+}
+
+/* University Name Styling */
+.university-name {
+    text-decoration: underline dotted;
+    color: var(--space-cadet);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.university-name:hover {
+    color: var(--columbia-blue);
+}
+
+/* Info Icon Styling */
 .info-icon {
     font-size: 14px;
     margin-left: 5px;
     color: var(--columbia-blue);
 }
 
-/* Change color on hover to indicate interactivity */
-.university-name:hover {
-    color: var(--columbia-blue); /* Change text color on hover */
-}
-
-/* Details are hidden by default */
-.details {
-    display: none;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 8px;
-    font-size: 14px;
-    color: var(--space-cadet);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-/* Show details on hover */
-.institution:hover .details {
-    display: block;
-    opacity: 1;
-}
 
 .skills-chart .skill {
     margin: 10px 0;
