@@ -267,13 +267,59 @@ h1, h2 {
     border-radius: 5px;
 }
 
-/* Experience, Projects, and Contact Sections */
 .job, .project {
     background-color: var(--space-cadet);
     color: var(--alice-blue);
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 8px;
+}
+
+/* Pop-up styling */
+.popup {
+    display: none;
+    position: absolute;
+    background-color: var(--alice-blue);
+    border: 1px solid var(--lapis-lazuli);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+    width: 300px;
+    font-size: 14px;
+    color: var(--raisin-black);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-trigger {
+    color: var(--lapis-lazuli);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.popup-trigger:hover {
+    color: var(--columbia-blue);
+}
+
+.contact-links {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.contact-links a, .contact-links .phone-number {
+    color: var(--lapis-lazuli);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.contact-links a:hover, .contact-links .phone-number:hover {
+    color: var(--columbia-blue);
 }
 
 .contact-form input, .contact-form textarea {
@@ -291,7 +337,17 @@ h1, h2 {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.contact-form button:hover {
+    background-color: var(--lapis-lazuli);
+}
+
+.contact-links i {
+    font-size: 1.5em;
+}
+
 
 /* Footer */
 footer {
@@ -315,6 +371,7 @@ footer button {
 footer button:hover {
     background-color: var(--lapis-lazuli);
 }
+
 /*@media (max-width: 700px) {*/
 /*    body {*/
 /*        background-color: green;*/
