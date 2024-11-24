@@ -9,17 +9,16 @@
 </head>
 <body>
 
-<!-- Header Section with Timeline -->
 <header>
   <div class="navbar-container">
-    <div class="navbar">
+    <nav class="navbar">
       <a href="#home">Home</a>
       <a href="#education">Education</a>
       <a href="#skills">Technical Skills</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-    </div>
+    </nav>
   </div>
 
   <section id="home" class="section">
@@ -39,7 +38,6 @@
 <section id="education" class="section">
   <h2>Education</h2>
   <div class="education-container">
-    <!-- Institution 1 -->
     <div class="institution">
       <p>
         <span class="university-name">McGill University</span> <span class="info-icon">ℹ️</span>
@@ -55,7 +53,6 @@
       </div>
     </div>
 
-    <!-- Institution 2 -->
     <div class="institution">
       <p>
         <span class="university-name">University of Toronto</span> <span class="info-icon">ℹ️</span>
@@ -73,9 +70,6 @@
   </div>
 </section>
 
-
-
-<!-- Technical Skills Section with Bar Charts -->
 <section id="skills" class="section">
   <h2>Technical Skills</h2>
   <div class="skills-chart">
@@ -87,7 +81,6 @@
   </div>
 </section>
 
-<!-- Experience Section with Interactive Mini-Dashboard -->
 <section id="experience" class="section">
   <h2>Experience</h2>
   <div class="job" id="icbc-internship">
@@ -101,26 +94,7 @@
   </div>
 </section>
 
-<!-- Projects Section with Interactive Buttons -->
 <section id="projects" class="section">
-  <script>
-    function toggleDetails(id) {
-      const details = document.getElementById(id);
-      if (details.style.display === "none" || !details.style.display) {
-        details.style.display = "block";
-      } else {
-        details.style.display = "none";
-      }
-    }
-    function showPopup(contentId) {
-      const popup = document.getElementById(contentId);
-      popup.style.display = "block";
-    }
-    function hidePopup(contentId) {
-      const popup = document.getElementById(contentId);
-      popup.style.display = "none";
-    }
-  </script>
   <h2>Projects</h2>
 
   <!-- College Student Calendar Project -->
@@ -135,9 +109,14 @@
         <li>Used R to analyze user feedback and Tableau for data visualization.</li>
       </ul>
     </div>
-    <span class="popup-trigger" onmouseover="showPopup('calendar-popup')" onmouseout="hidePopup('calendar-popup')">
-      [Technical Details]
-    </span>
+    <div class="popup-container">
+      <span class="popup-trigger" onmouseover="showPopup('calendar-popup')" onmouseout="hidePopup('calendar-popup')">
+        [Technical Details]
+      </span>
+      <div id="calendar-popup" class="popup">
+        <p><strong>Technical Tools and Methods:</strong> Utilized R for statistical analysis of user feedback. Designed Tableau dashboards to visualize usability data. Applied UXD principles to improve interface design iteratively.</p>
+      </div>
+    </div>
   </div>
 
   <!-- Image Classification Project -->
@@ -151,9 +130,14 @@
         <li>Processed 100,000 images to improve model accuracy by 15% over baseline.</li>
       </ul>
     </div>
-    <span class="popup-trigger" onmouseover="showPopup('image-popup')" onmouseout="hidePopup('image-popup')">
-      [Technical Details]
-    </span>
+    <div class="popup-container">
+      <span class="popup-trigger" onmouseover="showPopup('image-popup')" onmouseout="hidePopup('image-popup')">
+        [Technical Details]
+      </span>
+      <div id="image-popup" class="popup">
+        <p><strong>Technical Tools and Methods:</strong> Developed and trained deep learning models using TensorFlow and PyTorch. Implemented data augmentation techniques and fine-tuned Vision Transformer for high accuracy.</p>
+      </div>
+    </div>
   </div>
 
   <!-- Pet & Park Database Project -->
@@ -168,29 +152,19 @@
         <li>Built user interface using HTML and JavaScript for complex queries.</li>
       </ul>
     </div>
-    <span class="popup-trigger" onmouseover="showPopup('pet-db-popup')" onmouseout="hidePopup('pet-db-popup')">
-      [Technical Details]
-    </span>
-  </div>
-
-  <!-- Pop-ups for Technical Details -->
-  <div id="calendar-popup" class="popup">
-    <p><strong>Technical Tools and Methods:</strong> Utilized R for statistical analysis of user feedback. Designed Tableau dashboards to visualize usability data. Applied UXD principles to improve interface design iteratively.</p>
-  </div>
-  <div id="image-popup" class="popup">
-    <p><strong>Technical Tools and Methods:</strong> Developed and trained deep learning models using TensorFlow and PyTorch. Implemented data augmentation techniques and fine-tuned Vision Transformer for high accuracy.</p>
-  </div>
-  <div id="pet-db-popup" class="popup">
-    <p><strong>Technical Tools and Methods:</strong> Engineered relational schemas with SQL for efficient querying. Used HTML and JavaScript to implement dynamic user interfaces. Applied best practices for data normalization and integrity.</p>
+    <div class="popup-container">
+      <span class="popup-trigger" onmouseover="showPopup('pet-db-popup')" onmouseout="hidePopup('pet-db-popup')">
+        [Technical Details]
+      </span>
+      <div id="pet-db-popup" class="popup">
+        <p><strong>Technical Tools and Methods:</strong> Engineered relational schemas with SQL for efficient querying. Used HTML and JavaScript to implement dynamic user interfaces. Applied best practices for data normalization and integrity.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-
-<!-- Contact Section with Contact Form -->
 <section id="contact" class="section">
   <h2>Contact</h2>
-
-  <!-- Contact Links -->
   <div class="contact-links">
     <a href="https://www.linkedin.com/in/qin-xu--ariel/" target="_blank" title="LinkedIn Profile">
       <i class="fab fa-linkedin"></i> LinkedIn
@@ -199,47 +173,22 @@
       <i class="fas fa-envelope"></i> Email
     </a>
     <span class="phone-number" onclick="copyPhoneNumber()" title="Click to Copy">
-      <i class="fas fa-phone"></i> 437-361-9206
+      <i class="fas fa-phone"></i> Phone Number
     </span>
   </div>
-
-  <!-- Contact Form -->
-  <form class="contact-form" action="mailto:Ariel.xq2025@outlook.com" method="POST" enctype="text/plain">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" placeholder="Message" required></textarea>
+  <form class="contact-form" onsubmit="sendEmail(event)">
+    <input type="text" id="name" name="name" placeholder="Name" required>
+    <input type="email" id="email" name="email" placeholder="Email" required>
+    <textarea id="message" name="message" placeholder="Message" required></textarea>
     <button type="submit">Send Message</button>
   </form>
 </section>
 
-<!-- JavaScript for Copying Phone Number -->
-<script>
-  function copyPhoneNumber() {
-    const phoneNumber = "437-361-9206";
-    navigator.clipboard.writeText(phoneNumber).then(() => {
-      alert("Phone number copied to clipboard!");
-    }).catch(err => {
-      alert("Failed to copy the phone number. Please try again.");
-    });
-  }
-</script>
-
-
-<!-- Footer with Resume Download -->
 <footer>
-  <button onclick="downloadResume()">Download Resume</button>
+  <a href="https://raw.githubusercontent.com/Ariel-Q/Ariel-Q.github.io/main/Resume Qin Xu.pdf" download="Resume Qin Xu.pdf">
+    <button>Download Resume</button>
+  </a>
 </footer>
-
-<script>
-  function downloadResume() {
-    // Replace 'resume.pdf' with the actual path to your resume file
-    const resumeUrl = 'https://github.com/Ariel-Q/Ariel-Q.github.io/blob/main/Resume%20Qin%20Xu.pdf';
-    window.open(resumeUrl, '_blank');
-  }
-</script>
-
-
-</body>
 
 <script>
   function scrollToSection(sectionId) {
@@ -248,6 +197,57 @@
       section.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }
+
+  function toggleDetails(id) {
+    const details = document.getElementById(id);
+    if (details.style.display === "none" || !details.style.display) {
+      details.style.display = "block";
+    } else {
+      details.style.display = "none";
+    }
+  }
+  function showPopup(contentId) {
+    const popup = document.getElementById(contentId);
+    popup.style.display = "block";
+  }
+  function hidePopup(contentId) {
+    const popup = document.getElementById(contentId);
+    popup.style.display = "none";
+  }
+
+  function copyPhoneNumber() {
+    const phoneNumber = "437-361-9206";
+    navigator.clipboard.writeText(phoneNumber).then(() => {
+      alert("Phone number copied to clipboard!");
+    }).catch(() => {
+      alert("Failed to copy the phone number. Please try again.");
+    });
+  }
+
+  function sendEmail(event) {
+    event.preventDefault();
+    const email = "Ariel.xq2025@outlook.com";
+    const name = document.getElementById("name").value;
+    const userEmail = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const subject = "Contact from Personal Website";
+    const body = `Hi Ariel,%0D%0A%0D%0A${encodeURIComponent(message)}%0D%0A%0D%0A%0D%0A${encodeURIComponent(name)}%0D%0A${encodeURIComponent(userEmail)}`;
+
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href = mailtoLink;
+  }
+
+  function toggleDetails(id) {
+    const details = document.getElementById(id);
+    if (details.style.display === "none" || !details.style.display) {
+      details.style.display = "block";
+    } else {
+      details.style.display = "none";
+    }
+  }
 </script>
 
+</body>
 </html>
+
