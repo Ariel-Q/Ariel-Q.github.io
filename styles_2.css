@@ -5,24 +5,28 @@
     --lapis-lazuli: #3F679F;
     --space-cadet: #1C1C3F;
     --raisin-black: #191921;
-    --font-primary: 'Monda', sans-serif;
-    --font-secondary: 'Martel Sans', sans-serif;
-    --font-accent: 'Biryani', sans-serif;
+    --font-primary: "Exo 2", sans-serif;
+    --font-secondary: "Taviraj", serif;
+    --font-accent: "Maven Pro", sans-serif;
 }
-
+button {
+    font-family: var(--font-secondary);
+}
 body {
-    font-family: var(--font-primary);
+    font: var(--font-secondary);
     background-color: var(--alice-blue);
     margin: 0;
     color: var(--raisin-black);
 }
 
 header {
-    background-color: var(--lapis-lazuli);
+    background: url('https://seleritysas.com/wp-content/uploads/2018/11/bigstock-Data-Technology-Background-Ab-258428140-e1542799094418.jpg') no-repeat center center;
+    background-size: cover; /* Ensures the image covers the header area */
     color: var(--alice-blue);
     text-align: center;
     padding: 20px;
 }
+
 
 .navbar-container {
     position: fixed;
@@ -36,7 +40,7 @@ header {
 }
 
 .navbar {
-    background-color: #f5f5f5;
+    background-color: var(--alice-blue);
     display: flex;
     justify-content: center;
     padding: 10px;
@@ -48,27 +52,26 @@ header {
     .navbar {
         padding: 5px;
         flex-direction: column;
-        border-radius: 10px;
+        border-radius: 15px;
     }
 }
 
 .navbar a {
     color: var(--space-cadet);
     text-decoration: none;
-    padding: 10px 20px;
+    font-weight: bold;
+    padding: 10px 10px;
     font-family: var(--font-secondary);
     font-size: 16px;
-    background-color: #e8e8e8;
-    border-radius: 12px;
+    border-radius: 15px;
     margin: 0 5px;
-    border: 1px solid #d0d0d0;
     transition: background-color 0.3s ease, color 0.3s ease;
     max-width: 90%;
 }
 
 .navbar a:hover {
-    background-color: var(--columbia-blue);
-    color: white;
+    background-color: var(--space-cadet);
+    color: var(--alice-blue);
 }
 
 .section {
@@ -77,20 +80,35 @@ header {
     margin: auto;
 }
 
-h1, h2 {
+h1 {
+    font-family: var(--font-primary);
+    font-weight: bold;
+    color: var(--alice-blue);
+    font-size: 30px;
+}
+
+h2 {
     font-family: var(--font-secondary);
     color: var(--space-cadet);
+    font-size: 25px;
+}
+
+h3 {
+    font-family: var(--font-secondary);
+    color: var(--alice-blue);
+    font-size: 20px;
 }
 
 .tagline span {
     display: inline-block;
-    font-family: var(--font-accent);
-    font-size: 1.2em;
+    font-family: var(--font-secondary);
+    font-size: 20px;
     color: var(--columbia-blue);
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid var(--columbia-blue);
     animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;
+    font-weight: bold;
 }
 
 @keyframes typing {
@@ -126,7 +144,7 @@ h1, h2 {
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: white;
+    background-color: var(--alice-blue);
     z-index: -1;
 }
 
@@ -135,7 +153,7 @@ h1, h2 {
     width: 15px;
     height: 15px;
     background-color: var(--columbia-blue);
-    border-radius: 50%;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     z-index: 3;
@@ -150,9 +168,9 @@ h1, h2 {
     white-space: nowrap;
     padding: 5px 10px;
     background-color: var(--raisin-black);
-    color: white;
-    border-radius: 4px;
-    font-size: 12px;
+    color: var(--alice-blue);
+    border-radius: 15px;
+    font-size: 16px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -174,12 +192,13 @@ h1, h2 {
     min-width: 300px;
     background-color: #f9f9f9;
     padding: 10px 20px 30px;
-    border-radius: 8px;
+    border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, height 0.3s ease;
     overflow: hidden;
     cursor: pointer;
     height: 120px;
+    font-weight: 500;
 }
 
 .institution:hover {
@@ -191,6 +210,7 @@ h1, h2 {
 }
 
 .details {
+    font-family: var(--font-accent);
     opacity: 0;
     max-height: 0;
     transition: opacity 0.3s ease, max-height 0.3s ease;
@@ -213,14 +233,60 @@ h1, h2 {
 }
 
 .info-icon {
-    font-size: 14px;
+    font-size: 18px;
     margin-left: 5px;
     color: var(--columbia-blue);
 }
 
-.skills-chart .skill {
-    margin: 10px 0;
+/* Skills Section */
+#skills {
+    font-family: var(--font-primary);
+    padding: 40px 20px;
+    margin: 50px auto;
+    max-width: 800px;
 }
+
+
+
+.skills-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Skill Item */
+.skill {
+    width: 100%;
+}
+
+.skill-title {
+    font-family: var(--font-accent);
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: var(--space-cadet);
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Bar Container */
+.bar-container {
+    width: 100%;
+    background-color: var(--columbia-blue);
+    border-radius: 15px;
+    height: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Bar Fill */
+.bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--lapis-lazuli), var(--space-cadet));
+    border-radius: 15px;
+    transition: width 1s ease-in-out;
+}
+
 
 .project-details {
     display: none;
@@ -229,7 +295,7 @@ h1, h2 {
     background-color: var(--alice-blue);
     color: var(--raisin-black);
     border: 1px solid var(--lapis-lazuli);
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .project-details ul {
@@ -240,24 +306,25 @@ h1, h2 {
 }
 
 .project button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 20px;
     background-color: var(--lapis-lazuli);
-    color: white;
-    font-size: 14px;
+    color: var(--alice-blue);
+    padding: 10px 15px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 16px;
+    border: none;
 }
 
 .project button:hover {
     background-color: var(--columbia-blue);
+    color: var(--space-cadet)
 }
 
 .bar {
     background-color: var(--columbia-blue);
     height: 8px;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .job, .project {
@@ -265,7 +332,7 @@ h1, h2 {
     color: var(--alice-blue);
     padding: 15px;
     margin-bottom: 20px;
-    border-radius: 8px;
+    border-radius: 15px;
 }
 
 .popup {
@@ -274,10 +341,10 @@ h1, h2 {
     background-color: var(--alice-blue);
     border: 1px solid var(--lapis-lazuli);
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
     z-index: 1000;
     width: 300px;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--raisin-black);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -297,7 +364,7 @@ h1, h2 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 1.2em;
+    font-size: 20px;
 }
 
 .contact-links a, .contact-links .phone-number {
@@ -318,18 +385,20 @@ h1, h2 {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 1px solid var(--lapis-lazuli);
+    font: var(--font-secondary);
 }
 
 .contact-form button {
     background-color: var(--space-cadet);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    color: var(--alice-blue);
+    padding: 10px 15px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 16px;
+    border: none;
 }
 
 .contact-form button:hover {
@@ -337,27 +406,30 @@ h1, h2 {
 }
 
 .contact-links i {
-    font-size: 1.5em;
+    font-size: 25px;
 }
 
 footer {
     background-color: var(--raisin-black);
-    color: white;
+    color: var(--alice-blue);
     text-align: center;
     padding: 20px;
-    font-family: var(--font-secondary);
+    font: var(--font-secondary);
 }
 
 footer button {
     background-color: var(--columbia-blue);
-    color: white;
+    color: var(--space-cadet);
     padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
 }
 
 footer button:hover {
     background-color: var(--lapis-lazuli);
+    color: var(--columbia-blue);
 }

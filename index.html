@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ariel Xu - Data Scientist CV</title>
   <link rel="stylesheet" href="styles_2.css">
-  <link href="https://fonts.googleapis.com/css2?family=Monda&family=Martel+Sans&family=Biryani&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Maven+Pro:wght@400..900&family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -24,7 +26,7 @@
   <section id="home" class="section">
     <h1>Ariel Xu</h1>
     <p class="tagline"><span>Data Scientist | Data Analyst | Turning Data into Insights</span></p>
-    <a href="https://www.linkedin.com/in/qin-xu--ariel" target="_blank" class="linkedin-icon">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/qin-xu--ariel" target="_blank" class="tagline">LinkedIn</a>
     <p class="contact-info">(437) 361-9206 | Ariel.xq2025@outlook.com | Toronto, ON</p>
     <div class="timeline">
       <span class="timeline-dot" data-title="2020: Calendar Project" onclick="scrollToSection('#student-calendar')"></span>
@@ -73,11 +75,36 @@
 <section id="skills" class="section">
   <h2>Technical Skills</h2>
   <div class="skills-chart">
-    <div class="skill">Python <div class="bar" style="width: 90%;"></div></div>
-    <div class="skill">SQL <div class="bar" style="width: 80%;"></div></div>
-    <div class="skill">Tableau <div class="bar" style="width: 85%;"></div></div>
-    <div class="skill">Git <div class="bar" style="width: 75%;"></div></div>
-    <div class="skill">HTML/CSS <div class="bar" style="width: 70%;"></div></div>
+    <div class="skill">
+      <span class="skill-title">Python</span>
+      <div class="bar-container">
+        <div class="bar" style="width: 90%;"></div>
+      </div>
+    </div>
+    <div class="skill">
+      <span class="skill-title">SQL</span>
+      <div class="bar-container">
+        <div class="bar" style="width: 80%;"></div>
+      </div>
+    </div>
+    <div class="skill">
+      <span class="skill-title">Tableau</span>
+      <div class="bar-container">
+        <div class="bar" style="width: 85%;"></div>
+      </div>
+    </div>
+    <div class="skill">
+      <span class="skill-title">Git</span>
+      <div class="bar-container">
+        <div class="bar" style="width: 75%;"></div>
+      </div>
+    </div>
+    <div class="skill">
+      <span class="skill-title">HTML/CSS</span>
+      <div class="bar-container">
+        <div class="bar" style="width: 70%;"></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -101,7 +128,7 @@
   <div class="project" id="student-calendar">
     <h3>College Student Calendar Software Design</h3>
     <p><strong>R, UXD, Tableau (Jan 2022 - May 2022)</strong></p>
-    <button onclick="toggleDetails('calendar-details')">View Details</button>
+    <button class = 'project button' onclick="toggleDetails('calendar-details')">View Details</button>
     <div id="calendar-details" class="project-details">
       <ul>
         <li>Led a 5-person team in developing a calendar application for college students.</li>
@@ -109,7 +136,7 @@
         <li>Used R to analyze user feedback and Tableau for data visualization.</li>
       </ul>
     </div>
-    <div class="popup-container">
+    <div >
       <span class="popup-trigger" onmouseover="showPopup('calendar-popup')" onmouseout="hidePopup('calendar-popup')">
         [Technical Details]
       </span>
@@ -166,14 +193,14 @@
 <section id="contact" class="section">
   <h2>Contact</h2>
   <div class="contact-links">
-    <a href="https://www.linkedin.com/in/qin-xu--ariel/" target="_blank" title="LinkedIn Profile">
-      <i class="fab fa-linkedin"></i> LinkedIn
+    <a href="https://www.linkedin.com/in/qin-xu--ariel/" title="LinkedIn Profile">
+      LinkedIn
     </a>
     <a href="mailto:Ariel.xq2025@outlook.com" title="Email">
-      <i class="fas fa-envelope"></i> Email
+      Email
     </a>
     <span class="phone-number" onclick="copyPhoneNumber()" title="Click to Copy">
-      <i class="fas fa-phone"></i> Phone Number
+      Phone Number
     </span>
   </div>
   <form class="contact-form" onsubmit="sendEmail(event)">
@@ -186,7 +213,7 @@
 
 <footer>
   <a href="https://raw.githubusercontent.com/Ariel-Q/Ariel-Q.github.io/main/Resume Qin Xu.pdf" download="Resume Qin Xu.pdf">
-    <button>Download Resume</button>
+    <button class="custom-button">Download Resume</button>
   </a>
 </footer>
 
@@ -238,14 +265,6 @@
     window.location.href = mailtoLink;
   }
 
-  function toggleDetails(id) {
-    const details = document.getElementById(id);
-    if (details.style.display === "none" || !details.style.display) {
-      details.style.display = "block";
-    } else {
-      details.style.display = "none";
-    }
-  }
 </script>
 
 </body>
