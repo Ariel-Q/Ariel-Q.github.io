@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ariel Xu - Data Scientist CV</title>
   <link rel="stylesheet" href="styles_2.css">
+  <!-- Linking Google Fonts to use custom fonts throughout the site -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Maven+Pro:wght@400..900&family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -12,6 +13,7 @@
 <body>
 
 <header>
+  <!-- Navigation bar for easy access to website sections -->
   <div class="navbar-container">
     <nav class="navbar">
       <a href="#home">Home</a>
@@ -23,11 +25,15 @@
     </nav>
   </div>
 
+  <!-- Home Section -->
   <section id="home" class="section">
     <h1>Ariel Xu</h1>
     <p class="tagline"><span>Data Scientist | Data Analyst | Turning Data into Insights</span></p>
+    <!-- Linking to Ariel's LinkedIn profile -->
     <a href="https://www.linkedin.com/in/qin-xu--ariel" target="_blank" class="tagline">LinkedIn</a>
+    <!-- Contact information displayed prominently -->
     <p class="contact-info">(437) 361-9206 | Ariel.xq2025@outlook.com | Toronto, ON</p>
+    <!-- Interactive timeline highlighting key achievements -->
     <div class="timeline">
       <span class="timeline-dot" data-title="2020: Calendar Project" onclick="scrollToSection('#student-calendar')"></span>
       <span class="timeline-dot" data-title="2023: Image Classification" onclick="scrollToSection('#image-classification')"></span>
@@ -36,6 +42,7 @@
     </div>
   </section>
 </header>
+
 
 <section id="education" class="section">
   <h2>Education</h2>
@@ -218,6 +225,10 @@
 </footer>
 
 <script>
+  /**
+   * Scrolls smoothly to a specific section on the page.
+   * @param {string} sectionId - The ID of the section to scroll to.
+   */
   function scrollToSection(sectionId) {
     const section = document.querySelector(sectionId);
     if (section) {
@@ -225,47 +236,74 @@
     }
   }
 
+  /**
+   * Toggles the visibility of an element with the given ID.
+   * @param {string} id - The ID of the element to toggle.
+   */
   function toggleDetails(id) {
     const details = document.getElementById(id);
+    // Check if the element is hidden or not, then toggle its display property
     if (details.style.display === "none" || !details.style.display) {
-      details.style.display = "block";
+      details.style.display = "block"; // Show the element
     } else {
-      details.style.display = "none";
+      details.style.display = "none"; // Hide the element
     }
   }
+
+  /**
+   * Displays a popup element by setting its display property to 'block'.
+   * @param {string} contentId - The ID of the popup element to display.
+   */
   function showPopup(contentId) {
     const popup = document.getElementById(contentId);
-    popup.style.display = "block";
+    popup.style.display = "block"; // Make the popup visible
   }
+
+  /**
+   * Hides a popup element by setting its display property to 'none'.
+   * @param {string} contentId - The ID of the popup element to hide.
+   */
   function hidePopup(contentId) {
     const popup = document.getElementById(contentId);
-    popup.style.display = "none";
+    popup.style.display = "none"; // Make the popup invisible
   }
 
+  /**
+   * Copies the phone number to the clipboard and displays a success or failure message.
+   */
   function copyPhoneNumber() {
     const phoneNumber = "437-361-9206";
-    navigator.clipboard.writeText(phoneNumber).then(() => {
-      alert("Phone number copied to clipboard!");
-    }).catch(() => {
-      alert("Failed to copy the phone number. Please try again.");
-    });
+    // Use the Clipboard API to copy the phone number
+    navigator.clipboard.writeText(phoneNumber)
+            .then(() => {
+              alert("Phone number copied to clipboard!"); // Success message
+            })
+            .catch(() => {
+              alert("Failed to copy the phone number. Please try again."); // Failure message
+            });
   }
 
+  /**
+   * Sends an email using the "mailto:" protocol with the user's input from a form.
+   * @param {Event} event - The form submission event to prevent the default behavior.
+   */
   function sendEmail(event) {
-    event.preventDefault();
-    const email = "Ariel.xq2025@outlook.com";
-    const name = document.getElementById("name").value;
-    const userEmail = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    event.preventDefault(); // Prevent the form from submitting normally
+    const email = "Ariel.xq2025@outlook.com"; // Recipient's email address
+    const name = document.getElementById("name").value; // User's name input
+    const userEmail = document.getElementById("email").value; // User's email input
+    const message = document.getElementById("message").value; // User's message input
 
+    // Create the subject and body for the email
     const subject = "Contact from Personal Website";
     const body = `Hi Ariel,%0D%0A%0D%0A${encodeURIComponent(message)}%0D%0A%0D%0A%0D%0A${encodeURIComponent(name)}%0D%0A${encodeURIComponent(userEmail)}`;
 
+    // Create the mailto link and redirect to it to open the email client
     const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${body}`;
     window.location.href = mailtoLink;
   }
-
 </script>
+
 
 </body>
 </html>

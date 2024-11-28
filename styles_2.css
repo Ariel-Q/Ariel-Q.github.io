@@ -1,85 +1,96 @@
-/* Color Palette */
+/* Color Palette: Define reusable colors and fonts using CSS variables */
 :root {
-    --alice-blue: #DCE8EF;
-    --columbia-blue: #AED1E6;
-    --lapis-lazuli: #3F679F;
-    --space-cadet: #1C1C3F;
-    --raisin-black: #191921;
+    --alice-blue: #DCE8EF; /* Light blue for backgrounds and accents */
+    --columbia-blue: #AED1E6; /* Medium blue for text and highlights */
+    --lapis-lazuli: #3F679F; /* Darker blue for buttons and details */
+    --space-cadet: #1C1C3F; /* Deep blue for headers and key elements */
+    --raisin-black: #191921; /* Almost black for text and contrasts */
     --font-primary: "Exo 2", sans-serif;
     --font-secondary: "Taviraj", serif;
     --font-accent: "Maven Pro", sans-serif;
 }
+
+/* Global button styling */
 button {
     font-family: var(--font-secondary);
 }
+
+/* Body styling */
 body {
-    font: var(--font-secondary);
-    background-color: var(--alice-blue);
-    margin: 0;
-    color: var(--raisin-black);
+    font: var(--font-secondary); /* Set default font */
+    background-color: var(--alice-blue); /* Light background */
+    margin: 0; /* Remove default margin */
+    color: var(--raisin-black); /* Set text color */
 }
 
+/* Header styling */
 header {
     background: url('https://seleritysas.com/wp-content/uploads/2018/11/bigstock-Data-Technology-Background-Ab-258428140-e1542799094418.jpg') no-repeat center center;
-    background-size: cover; /* Ensures the image covers the header area */
+    background-size: cover; /* Ensure the image covers the header area */
     color: var(--alice-blue);
     text-align: center;
     padding: 20px;
 }
 
-
+/* Navbar container to center the navigation bar */
 .navbar-container {
-    position: fixed;
+    position: fixed; /* Keep navbar fixed at the top */
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
+    z-index: 1000; /* Ensure navbar appears above other elements */
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
+/* Navbar styling */
 .navbar {
     background-color: var(--alice-blue);
     display: flex;
     justify-content: center;
     padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+    border-radius: 15px; /* Rounded corners */
 }
 
+/* Responsive navbar for smaller screens */
 @media (max-width: 600px) {
     .navbar {
         padding: 5px;
-        flex-direction: column;
+        flex-direction: column; /* Stack links vertically */
         border-radius: 15px;
     }
 }
 
+/* Navbar links styling */
 .navbar a {
-    color: var(--space-cadet);
-    text-decoration: none;
+    color: var(--space-cadet); /* Deep blue for links */
+    text-decoration: none; /* Remove underline */
     font-weight: bold;
     padding: 10px 10px;
     font-family: var(--font-secondary);
     font-size: 16px;
     border-radius: 15px;
     margin: 0 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
     max-width: 90%;
 }
 
+/* Navbar hover effect */
 .navbar a:hover {
     background-color: var(--space-cadet);
     color: var(--alice-blue);
 }
 
+/* General section styling */
 .section {
     padding: 50px 20px;
     max-width: 800px;
     margin: auto;
 }
 
+/* Headings styling */
 h1 {
     font-family: var(--font-primary);
     font-weight: bold;
@@ -89,7 +100,7 @@ h1 {
 
 h2 {
     font-family: var(--font-secondary);
-    color: var(--space-cadet);
+    color: var(--space-cadet); /
     font-size: 25px;
 }
 
@@ -99,142 +110,155 @@ h3 {
     font-size: 20px;
 }
 
+/* Animated tagline styling */
 .tagline span {
     display: inline-block;
     font-family: var(--font-secondary);
     font-size: 20px;
     color: var(--columbia-blue);
     white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid var(--columbia-blue);
+    overflow: hidden; /* Hide overflowing text */
+    border-right: 3px solid var(--columbia-blue); /* Blinking cursor effect */
     animation: typing 3s steps(30, end), blink-caret 0.5s step-end infinite;
     font-weight: bold;
 }
 
+/* Typing effect animation */
 @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+    from { width: 0; } /* Start with no width */
+    to { width: 100%; } /* Expand to full width */
 }
 
+/* Blinking caret animation */
 @keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--columbia-blue); }
+    from, to { border-color: transparent; } /* Transparent at start/end */
+    50% { border-color: var(--columbia-blue); } /* Visible in the middle */
 }
 
+/* Contact info and tagline styling */
 .tagline, .contact-info {
     font-family: var(--font-accent);
     color: var(--columbia-blue);
 }
 
+/* Timeline styling */
 .timeline {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: relative; /* Required for pseudo-elements */
     margin-top: 20px;
     padding: 10px;
-    gap: 50px;
+    gap: 50px; /* Space between dots */
     z-index: 2;
 }
 
+/* Timeline line */
 .timeline::before {
     content: "";
     position: absolute;
-    top: 50%;
+    top: 50%; /* Center the line vertically */
     left: 0;
     width: 100%;
-    height: 3px;
+    height: 3px; /* Thickness of the line */
     background-color: var(--alice-blue);
-    z-index: -1;
+    z-index: -1; /* Place behind dots */
 }
 
+/* Timeline dots */
 .timeline-dot {
     position: relative;
     width: 15px;
     height: 15px;
-    background-color: var(--columbia-blue);
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    z-index: 3;
+    background-color: var(--columbia-blue); /* Accent color */
+    border-radius: 15px; /* Make dots circular */
+    cursor: pointer; /* Indicate interactivity */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    z-index: 3; /* Place above the line */
 }
 
+/* Tooltip for timeline dots */
 .timeline-dot::after {
-    content: attr(data-title);
+    content: attr(data-title); /* Display title on hover */
     position: absolute;
-    bottom: 25px;
+    bottom: 25px; /* Position above dot */
     left: 50%;
     transform: translateX(-50%);
-    white-space: nowrap;
+    white-space: nowrap; /* Prevent text wrapping */
     padding: 5px 10px;
-    background-color: var(--raisin-black);
-    color: var(--alice-blue);
+    background-color: var(--raisin-black); /* Dark background */
+    color: var(--alice-blue); /* Light text */
     border-radius: 15px;
     font-size: 16px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+    opacity: 0; /* Hide by default */
+    pointer-events: none; /* Ignore clicks */
+    transition: opacity 0.3s ease; /* Smooth fade-in */
 }
 
 .timeline-dot:hover::after {
-    opacity: 1;
+    opacity: 1; /* Make visible */
 }
 
+/* Education Section */
 .education-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: flex; /* Align institutions horizontally */
+    justify-content: space-between; /* Distribute space evenly */
+    gap: 20px; /* Space between items */
+    flex-wrap: wrap; /* Wrap items to the next line on small screens */
 }
 
 .institution {
-    flex: 1;
-    min-width: 300px;
-    background-color: #f9f9f9;
+    flex: 1; /* Allow items to grow equally */
+    min-width: 300px; /* Ensure a minimum width for readability */
+    background-color: var(--alice-blue);
     padding: 10px 20px 30px;
     border-radius: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, height 0.3s ease;
-    overflow: hidden;
-    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /*clear shadow work as edges*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, height 0.3s ease; /* Smooth hover effects */
+    overflow: hidden; /* Prevent content overflow */
+    cursor: pointer; /* Indicate interactivity */
     height: 120px;
-    font-weight: 500;
+    font-weight: 500; /* Slightly bold text */
 }
 
+/* Hover effect for institutions */
 .institution:hover {
-    background-color: #ffffff;
-    transform: translateY(-5px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    height: auto;
-    z-index: 1;
+    transform: translateY(-5px); /* Slightly lift on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6); /* Increase shadow depth */
+    height: auto; /* Expand height to show more content */
+    z-index: 1; /* Place above other elements */
 }
 
+/* Details inside institutions */
 .details {
     font-family: var(--font-accent);
-    opacity: 0;
-    max-height: 0;
-    transition: opacity 0.3s ease, max-height 0.3s ease;
+    opacity: 0; /* Hide by default */
+    max-height: 0; /* Collapse content */
+    transition: opacity 0.3s ease, max-height 0.3s ease; /* Smooth reveal */
 }
 
+/* Show details on hover */
 .institution:hover .details {
-    opacity: 1;
-    max-height: 300px;
+    opacity: 1; /* Make visible */
+    max-height: 300px; /* Expand to fit content */
 }
 
+/* University name styling */
 .university-name {
-    text-decoration: underline dotted;
+    text-decoration: underline dotted; /* Dotted underline for emphasis */
     color: var(--space-cadet);
-    cursor: pointer;
-    transition: color 0.3s ease;
+    cursor: pointer; /* Indicate interactivity */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .university-name:hover {
-    color: var(--columbia-blue);
+    color: var(--columbia-blue); /* Change to accent color on hover */
 }
 
+/* Info icon styling */
 .info-icon {
     font-size: 18px;
-    margin-left: 5px;
+    margin-left: 5px; /* Add space between text and icon */
     color: var(--columbia-blue);
 }
 
@@ -243,33 +267,32 @@ h3 {
     font-family: var(--font-primary);
     padding: 40px 20px;
     margin: 50px auto;
-    max-width: 800px;
+    max-width: 600px;
 }
-
-
 
 .skills-chart {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
+    display: flex; /* Align skill items */
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Space between items */
+    align-items: center; /* Center items */
 }
 
-/* Skill Item */
+/* Individual skill item */
 .skill {
-    width: 100%;
+    width: 100%; /* Full width of container */
 }
 
+/* Skill title styling */
 .skill-title {
-    font-family: var(--font-accent);
-    font-size: 20px;
+    font-family: var(--font-accent); /* Use accent font */
+    font-size: 20px; /* Font size for readability */
     margin-bottom: 5px;
     color: var(--space-cadet);
     text-align: left;
-    font-weight: bold;
+    font-weight: bold; /* Emphasize the title */
 }
 
-/* Bar Container */
+/* Bar container for skill levels */
 .bar-container {
     width: 100%;
     background-color: var(--columbia-blue);
@@ -279,7 +302,7 @@ h3 {
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Bar Fill */
+/* Fill inside the bar */
 .bar {
     height: 100%;
     background: linear-gradient(90deg, var(--lapis-lazuli), var(--space-cadet));
@@ -287,24 +310,25 @@ h3 {
     transition: width 1s ease-in-out;
 }
 
-
+/* Project Details Section */
 .project-details {
-    display: none;
+    display: none; /* Hide details by default */
     margin-top: 10px;
     padding: 10px;
     background-color: var(--alice-blue);
     color: var(--raisin-black);
-    border: 1px solid var(--lapis-lazuli);
+    border: 1px solid var(--lapis-lazuli); /* Subtle border */
     border-radius: 15px;
 }
 
 .project-details ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: disc;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    list-style-type: disc; /* Use disc list style */
     padding-left: 20px;
 }
 
+/* Button styling for project section */
 .project button {
     background-color: var(--lapis-lazuli);
     color: var(--alice-blue);
@@ -317,16 +341,11 @@ h3 {
 }
 
 .project button:hover {
-    background-color: var(--columbia-blue);
-    color: var(--space-cadet)
+    background-color: var(--columbia-blue); /* Change background on hover */
+    color: var(--space-cadet); /* Change text color on hover */
 }
 
-.bar {
-    background-color: var(--columbia-blue);
-    height: 8px;
-    border-radius: 15px;
-}
-
+/* Job and project cards */
 .job, .project {
     background-color: var(--space-cadet);
     color: var(--alice-blue);
@@ -335,20 +354,22 @@ h3 {
     border-radius: 15px;
 }
 
+/* Popup styling */
 .popup {
     display: none;
-    position: absolute;
+    position: absolute; /* Position relative to parent */
     background-color: var(--alice-blue);
-    border: 1px solid var(--lapis-lazuli);
+    border: 1px solid var(--lapis-lazuli); /* Border for emphasis */
     padding: 10px;
     border-radius: 15px;
-    z-index: 1000;
-    width: 300px;
+    z-index: 1000; /* Place above other elements */
+    width: 300px; /* Fixed width for consistency */
     font-size: 16px;
     color: var(--raisin-black);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Popup trigger styling */
 .popup-trigger {
     color: var(--lapis-lazuli);
     text-decoration: underline;
@@ -359,9 +380,10 @@ h3 {
     color: var(--columbia-blue);
 }
 
+/* Contact links styling */
 .contact-links {
     margin-bottom: 20px;
-    display: flex;
+    display: flex; /* Align links horizontally */
     justify-content: space-around;
     align-items: center;
     font-size: 20px;
@@ -369,20 +391,21 @@ h3 {
 
 .contact-links a, .contact-links .phone-number {
     color: var(--lapis-lazuli);
-    text-decoration: none;
+    text-decoration: none; /* Remove underline */
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: center; /* Center align items vertically */
+    gap: 8px; /* Space between icon and text */
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .contact-links a:hover, .contact-links .phone-number:hover {
-    color: var(--columbia-blue);
+    color: var(--columbia-blue); /* Light blue on hover */
 }
 
+/* Contact form inputs and buttons */
 .contact-form input, .contact-form textarea {
-    width: 100%;
+    width: 100%; /* Full width for inputs */
     padding: 10px;
     margin: 10px 0;
     border-radius: 15px;
@@ -405,10 +428,7 @@ h3 {
     background-color: var(--lapis-lazuli);
 }
 
-.contact-links i {
-    font-size: 25px;
-}
-
+/* Footer styling */
 footer {
     background-color: var(--raisin-black);
     color: var(--alice-blue);
@@ -423,10 +443,10 @@ footer button {
     padding: 10px 15px;
     border-radius: 15px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
     font-weight: bold;
     font-size: 16px;
-    border: none;
+    border: none; /* Remove default border */
 }
 
 footer button:hover {
