@@ -16,14 +16,22 @@
   <!-- Navigation bar for easy access to website sections -->
   <div class="navbar-container">
     <nav class="navbar">
-      <a href="#home">Home</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Technical Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <button class="hamburger-menu" onclick="toggleNavbar()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="navbar-links">
+        <a onclick="scrollToSection('#home')">Home</a>
+        <a onclick="scrollToSection('#education')">Education</a>
+        <a onclick="scrollToSection('#skills')">Technical Skills</a>
+        <a onclick="scrollToSection('#experience')">Experience</a>
+        <a onclick="scrollToSection('#projects')">Projects</a>
+        <a onclick="scrollToSection('#contact')">Contact</a>
+      </div>
     </nav>
   </div>
+
 
   <!-- Home Section -->
   <section id="home" class="section">
@@ -34,12 +42,26 @@
     <!-- Contact information displayed prominently -->
     <p class="contact-info">(437) 361-9206 | Ariel.xq2025@outlook.com | Toronto, ON</p>
     <!-- Interactive timeline highlighting key achievements -->
-    <div class="timeline">
-      <span class="timeline-dot" data-title="2020: Calendar Project" onclick="scrollToSection('#student-calendar')"></span>
-      <span class="timeline-dot" data-title="2023: Image Classification" onclick="scrollToSection('#image-classification')"></span>
-      <span class="timeline-dot" data-title="2024: ICBC Internship" onclick="scrollToSection('#icbc-internship')"></span>
-      <span class="timeline-dot" data-title="2024: Pet & Park DB" onclick="scrollToSection('#pet-db')"></span>
+    <div class="timeline-container">
+      <div class="timeline">
+        <span class="timeline-dot" data-title="2020: Calendar Project" onclick="scrollToSection('#student-calendar')">
+            <span class="timeline-year">2020</span>
+        </span>
+        <span class="timeline-dot" data-title="2023: Image Classification" onclick="scrollToSection('#image-classification')">
+            <span class="timeline-year">2023</span>
+        </span>
+        <span class="timeline-dot" data-title="2024: ICBC Internship" onclick="scrollToSection('#icbc-internship')">
+            <span class="timeline-year">2024</span>
+        </span>
+        <span class="timeline-dot" data-title="2024: Pet & Park DB" onclick="scrollToSection('#pet-db')">
+            <span class="timeline-year">2024</span>
+        </span>
+      </div>
+      <div class="timeline-title">Timeline</div>
+      <div class="timeline-instructions">Click on the dots to explore different milestones.</div>
     </div>
+
+    <!--    i use span here only to make sure the line didn't break, what the hard line between using p and span?-->
   </section>
 </header>
 
@@ -51,6 +73,7 @@
       <p>
         <span class="university-name">McGill University</span> <span class="info-icon">ℹ️</span>
       </p>
+<!--      i ask gpt to make sure the line look like what i want, but i'm not sure why it is span within p -->
       <p>Master of Information Studies, ML, and Data Science <br> (August 2023 - June 2025)</p>
       <div class="details">
         <p>Relevant Coursework:</p>
@@ -225,6 +248,11 @@
 </footer>
 
 <script>
+  function toggleNavbar() {
+    const navbarLinks = document.querySelector('.navbar-links');
+    navbarLinks.classList.toggle('expanded');
+  }
+
   /**
    * Scrolls smoothly to a specific section on the page.
    * @param {string} sectionId - The ID of the section to scroll to.

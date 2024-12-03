@@ -42,46 +42,96 @@ header {
     width: 100%;
     display: flex;
     justify-content: center;
+    background-color: var(--alice-blue);
 }
 
 /* Navbar styling */
 .navbar {
-    background-color: var(--alice-blue);
     display: flex;
-    justify-content: center;
-    padding: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 15px; /* Rounded corners */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Responsive navbar for smaller screens */
-@media (max-width: 600px) {
-    .navbar {
-        padding: 5px;
-        flex-direction: column; /* Stack links vertically */
-        border-radius: 15px;
-    }
+/* Hamburger menu styling */
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    padding: 0;
+    z-index: 1100;
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--space-cadet);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Navbar links container */
+.navbar-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
 /* Navbar links styling */
-.navbar a {
-    color: var(--space-cadet); /* Deep blue for links */
-    text-decoration: none; /* Remove underline */
+.navbar-links a {
+    color: var(--space-cadet);
+    text-decoration: none;
     font-weight: bold;
-    padding: 10px 10px;
+    padding: 10px 15px;
     font-family: var(--font-secondary);
     font-size: 16px;
-    border-radius: 15px;
-    margin: 0 5px;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-    max-width: 90%;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Navbar hover effect */
-.navbar a:hover {
+/* Hover effect */
+.navbar-links a:hover {
     background-color: var(--space-cadet);
     color: var(--alice-blue);
 }
+
+/* Responsive styling */
+@media (max-width: 800px) {
+    .hamburger-menu {
+        display: flex; /* Show hamburger menu */
+    }
+
+    .navbar-links {
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: var(--alice-blue);
+        flex-direction: column;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .navbar-links.expanded {
+        opacity: 1;
+        max-height: 500px; /* Arbitrary large value to allow for expansion */
+    }
+}
+
+
 
 /* General section styling */
 .section {
@@ -141,63 +191,117 @@ h3 {
     color: var(--columbia-blue);
 }
 
-/* Timeline styling */
+/* Timeline container styling */
+.timeline-container {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+/* Timeline styling remains as before */
 .timeline {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Required for pseudo-elements */
+    position: relative;
     margin-top: 20px;
     padding: 10px;
-    gap: 50px; /* Space between dots */
+    gap: 50px;
     z-index: 2;
 }
 
-/* Timeline line */
+/* Timeline line styling remains as before */
 .timeline::before {
     content: "";
     position: absolute;
-    top: 50%; /* Center the line vertically */
+    top: 50%;
     left: 0;
     width: 100%;
-    height: 3px; /* Thickness of the line */
+    height: 3px;
     background-color: var(--alice-blue);
-    z-index: -1; /* Place behind dots */
+    z-index: -1;
 }
 
-/* Timeline dots */
+/* Timeline dots styling */
 .timeline-dot {
     position: relative;
-    width: 15px;
-    height: 15px;
-    background-color: var(--columbia-blue); /* Accent color */
-    border-radius: 15px; /* Make dots circular */
-    cursor: pointer; /* Indicate interactivity */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-    z-index: 3; /* Place above the line */
+    width: 20px;
+    height: 20px;
+    background-color: var(--columbia-blue);
+    border: 3px solid var(--alice-blue);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 3;
+    text-align: center;
+}
+
+/* Year under dots */
+.timeline-year {
+    position: absolute;
+    top: 30px; /* Adjust for positioning below the dot */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: var(--alice-blue);
+    font-weight: bold;
+    font-family: var(--font-secondary);
+}
+
+/* Hover and active feedback */
+.timeline-dot:hover {
+    background-color: var(--dark-blue);
+    transform: scale(1.2);
+}
+
+.timeline-dot.active {
+    background-color: var(--dark-blue);
+    transform: scale(1.3);
 }
 
 /* Tooltip for timeline dots */
 .timeline-dot::after {
-    content: attr(data-title); /* Display title on hover */
+    content: attr(data-title);
     position: absolute;
-    bottom: 25px; /* Position above dot */
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
-    white-space: nowrap; /* Prevent text wrapping */
-    padding: 5px 10px;
-    background-color: var(--raisin-black); /* Dark background */
-    color: var(--alice-blue); /* Light text */
+    white-space: nowrap;
+    padding: 6px 12px;
+    background-color: var(--raisin-black);
+    color: var(--alice-blue);
     border-radius: 15px;
-    font-size: 16px;
-    opacity: 0; /* Hide by default */
-    pointer-events: none; /* Ignore clicks */
-    transition: opacity 0.3s ease; /* Smooth fade-in */
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(-50%) translateY(10px);
 }
 
 .timeline-dot:hover::after {
-    opacity: 1; /* Make visible */
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
+
+/* Title below the timeline */
+.timeline-title {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--alice-blue);
+    font-family: var(--font-secondary);
+}
+
+/* Instructions below the title */
+.timeline-instructions {
+    margin-top: 10px;
+    font-size: 16px;
+    color: var(--alice-blue);
+    font-style: italic;
+    font-family: var(--font-accent);
+}
+
 
 /* Education Section */
 .education-container {
@@ -359,7 +463,7 @@ h3 {
     display: none;
     position: absolute; /* Position relative to parent */
     background-color: var(--alice-blue);
-    border: 1px solid var(--lapis-lazuli); /* Border for emphasis */
+    border: 1px solid var(--alice-blue); /* Border for emphasis */
     padding: 10px;
     border-radius: 15px;
     z-index: 1000; /* Place above other elements */
@@ -371,7 +475,7 @@ h3 {
 
 /* Popup trigger styling */
 .popup-trigger {
-    color: var(--lapis-lazuli);
+    color: var(--alice-blue);
     text-decoration: underline;
     cursor: pointer;
 }
